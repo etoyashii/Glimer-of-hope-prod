@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace GlimmerOfHope.Gameplay.NewDialogue
 {
@@ -11,14 +12,12 @@ namespace GlimmerOfHope.Gameplay.NewDialogue
     public class DialogueBubblePresenter
     {
         #region Private Fields
-
         private GameObject _instance;
         private GameObject _prefabInUse;
         private IDialogueBubble _bubble;
 
         private Action _onContinue;
         private Action<int> _onChoiceSelected;
-
         #endregion
 
         #region Public Properties
@@ -28,7 +27,7 @@ namespace GlimmerOfHope.Gameplay.NewDialogue
         #endregion
 
         #region Public Methods
-
+        //Call once, typically from DialogueManager
         public void SetCallbacks(Action onContinue, Action<int> onChoiceSelected)
         {
             _onContinue = onContinue;
@@ -38,7 +37,7 @@ namespace GlimmerOfHope.Gameplay.NewDialogue
         public void CompleteTextReveal() => _bubble?.CompleteTextReveal();
 
         //Instantiates the right prefab if needed, or reuses the current one if it's already the same
-        public void EnsureInstance(DialogueNode node)
+        public void EnsureInstance(DialogueLineNode node)
         {
             if (node.bubblePrefab == null)
             {
@@ -67,8 +66,8 @@ namespace GlimmerOfHope.Gameplay.NewDialogue
             _bubble.Initialize(_onContinue, _onChoiceSelected);
         }
 
-        //Parents the bubble above the speaker (world space) or detaches it for fixed UI.
-        public void Position(DialogueNode node)
+        //Parents the bubble above the speaker (world space) or detaches it for fixed UI
+        public void Position(DialogueLineNode node)
         {
             if (_instance == null) return;
             var bubbleTransform = _instance.transform;
@@ -90,14 +89,19 @@ namespace GlimmerOfHope.Gameplay.NewDialogue
             bubbleTransform.localPosition = Vector3.zero;
         }
 
-        public void SetContent(DialogueNode node, IReadOnlyList<string> choiceLabels)
+        public void SetContent(DialogueLineNode node, IReadOnlyList<string> choiceLabels)
         {
             if (_bubble == null) return;
-            _bubble.SetText(node.text, node.useTypewriter, node.typewriterCharsPerSecond);
+            string resolvedText = ResolveText(node.localizedText, node.text);
+            _bubble.SetText(resolvedText, node.useTypewriter, node.typewriterCharsPerSecond);
             _bubble.SetChoices(choiceLabels);
-    
-            _bubble.SetSpeakerName(node.speakerId);
-               
+        }
+
+        //Uses the localized entry once it's set up
+        private static string ResolveText(LocalizedString localized, string fallback)
+        {
+            Debug.Log($"[DEBUG] SelectedLocale = {UnityEngine.Localization.Settings.LocalizationSettings.SelectedLocale?.Identifier.Code ?? "NULL"}, TableReference = {localized?.TableReference}, TableEntryReference = {localized?.TableEntryReference}, IsEmpty = {localized?.IsEmpty}");
+            return localized != null && !localized.IsEmpty ? localized.GetLocalizedString() : fallback;
         }
 
         public void Show() => _bubble?.Show();
@@ -110,7 +114,6 @@ namespace GlimmerOfHope.Gameplay.NewDialogue
             _prefabInUse = null;
             _bubble = null;
         }
-
         #endregion
     }
 }
