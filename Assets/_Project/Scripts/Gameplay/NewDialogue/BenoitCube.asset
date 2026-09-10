@@ -76,7 +76,7 @@ MonoBehaviour:
             m_WaitForCompletion: 0
             m_LocalVariables: []
           nextNodeId: 644d0ab0
-        editorPosition: {x: 311, y: 200}
+        editorPosition: {x: 260.2629, y: 201.24304}
         conditionType: 0
         conditionFlagName: CubeMissionRequested
         conditionExpectedValue: 1
