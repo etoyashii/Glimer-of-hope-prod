@@ -447,6 +447,18 @@ MonoBehaviour:
     m_Key: choice_a58dadcc_0
     m_Metadata:
       m_Items: []
+  - m_Id: 7716713366528000
+    m_Key: choice_1877987c_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7716713366528001
+    m_Key: choice_e36b7d94_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7716713366528002
+    m_Key: choice_71768696_0
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

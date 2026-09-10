@@ -37,10 +37,10 @@ MonoBehaviour:
         - choiceText: 
           localizedChoiceText:
             m_TableReference:
-              m_TableCollectionName: 
+              m_TableCollectionName: GUID:f8fabd72a30bffb479f5f15b97ffd357
             m_TableEntryReference:
               m_KeyId: 0
-              m_Key: 
+              m_Key: choice_e36b7d94_0
             m_FallbackState: 0
             m_WaitForCompletion: 0
             m_LocalVariables: []
