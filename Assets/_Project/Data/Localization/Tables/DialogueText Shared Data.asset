@@ -339,6 +339,30 @@ MonoBehaviour:
     m_Key: choice_c0d142cf_0
     m_Metadata:
       m_Items: []
+  - m_Id: 7662735655100416
+    m_Key: line_2bab8235
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7662735697043456
+    m_Key: choice_2bab8235_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7664854571343872
+    m_Key: line_abdc0559
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7664854604898304
+    m_Key: choice_abdc0559_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7664854604898305
+    m_Key: choice_abdc0559_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7664922703618048
+    m_Key: choice_abdc0559_2
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

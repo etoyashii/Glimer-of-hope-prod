@@ -93,8 +93,10 @@ namespace GlimmerOfHope.Gameplay.NewDialogue
         {
             if (_bubble == null) return;
             string resolvedText = ResolveText(node.localizedText, node.text);
+            _bubble.SetSpeakerName(node.speakerId);
             _bubble.SetText(resolvedText, node.useTypewriter, node.typewriterCharsPerSecond);
             _bubble.SetChoices(choiceLabels);
+
         }
 
         //Uses the localized entry once it's set up

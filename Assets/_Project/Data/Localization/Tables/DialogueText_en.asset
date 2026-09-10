@@ -363,6 +363,30 @@ MonoBehaviour:
     m_Localized: 
     m_Metadata:
       m_Items: []
+  - m_Id: 7662735655100416
+    m_Localized: 'Salut je suis benoit '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7662735697043456
+    m_Localized: 
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7664854604898304
+    m_Localized: 1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7664854571343872
+    m_Localized: Choisi 1 ou 2 ou 3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7664854604898305
+    m_Localized: 2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7664922703618048
+    m_Localized: 3
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
